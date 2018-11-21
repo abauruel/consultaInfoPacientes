@@ -7,6 +7,7 @@ const Exames = require('../src/controllers/medilab/Exames')
 const cd = require('../src/controllers/medilab/cd')
 
 routes.get("/multimed", PacientesMultimedController.consulta)
+routes.get("/multimed/:id", PacientesMultimedController.consultaID)
 routes.get("/medilab", Exames.consulta)
 routes.get("/cd", cd.consulta)
 
