@@ -226,7 +226,11 @@ const consultaNomePeriodo = (req, res) => {
         }
         db.query(
           sql,
-          [`${req.body.paciente}%`, req.body.dataIN, req.body.dataOut],
+          [
+            `${req.body.paciente.toUpperCase()}%`,
+            req.body.dataIN.replace("/", ".").replace("/", "."),
+            req.body.dataOut.replace("/", ".").replace("/", ".")
+          ],
           (erro, result) => {
             if (erro) {
               reject(erro);
