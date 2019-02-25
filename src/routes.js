@@ -9,7 +9,8 @@ const teste = require("./teste");
 
 routes.get("/multimed", PacientesMultimedController.consulta);
 routes.get("/multimed/:id", PacientesMultimedController.consultaID);
-routes.get("/medilab", Exames.consulta);
+routes.get("/multimed/laudo/:id", PacientesMultimedController.retornaLaudo);
+routes.get("/medilab", Exames.consultaExamesPeriodo);
 routes.get("/medilabId", Exames.consultaAN);
 routes.get("/cd", cd.consulta);
 routes.get("/cdId", cd.consultaAN);

@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@iarna/rtf-to-html@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iarna/rtf-to-html/-/rtf-to-html-1.1.0.tgz#f6950f376865f995e9b8d815fe89e9bf3e1236ee"
+  dependencies:
+    rtf-parser "^1.0.4"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -678,7 +684,7 @@ iconv-lite@0.4.23:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-iconv-lite@^0.4.4:
+iconv-lite@^0.4.15, iconv-lite@^0.4.4:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
   dependencies:
@@ -1321,7 +1327,7 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-readable-stream@^2.0.2, readable-stream@^2.0.6:
+readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.2.2:
   version "2.3.6"
   resolved "http://registry.npmjs.org/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   dependencies:
@@ -1386,6 +1392,13 @@ rimraf@^2.6.1:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
     glob "^7.0.5"
+
+rtf-parser@^1.0.4:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/rtf-parser/-/rtf-parser-1.3.1.tgz#3d752568e9fcda809c9f887d60c298be59cb00f2"
+  dependencies:
+    iconv-lite "^0.4.15"
+    readable-stream "^2.2.2"
 
 safe-buffer@5.1.2, safe-buffer@^5.0.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"

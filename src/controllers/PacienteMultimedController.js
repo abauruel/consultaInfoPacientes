@@ -1,5 +1,6 @@
 const oracledb = require("oracledb");
 const DbConfig = require("../config/dbconfig");
+const fs = require("fs");
 
 const consulta = async (req, res) => {
   const result = await oracledb
@@ -60,7 +61,40 @@ const consultaID = async (req, res) => {
   return res.json(result);
 };
 
+const retornaLaudo = async (req, res) => {
+  const result = await oracledb
+    .getConnection({
+      user: DbConfig.user,
+      password: DbConfig.password,
+      connectString: DbConfig.connectString
+    })
+    .then(function(connection) {
+      return connection
+        .execute(
+          `select texto from exameslaudos_texto where nrexame = :id`,
+          [req.params.id],
+          { maxRows: 200 }
+        )
+        .then(function(result) {
+          connection.close();
+          return result.rows;
+        })
+        .catch(function(err) {
+          console.log(err.message);
+          return connection.close();
+        });
+    });
+
+  fs.writeFile(`./${req.params.id}.pdf`, result, function(err) {
+    if (err) throw err;
+    console.log("Arquivo Salvo");
+  });
+
+  return res.json(result);
+};
+
 module.exports = {
   consultaID,
-  consulta
+  consulta,
+  retornaLaudo
 };
